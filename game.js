@@ -20,7 +20,7 @@ function checkAnswer(currentLevel) {
     else {
         playSound("wrong");
         $("body").addClass("game-over");
-        $("#level-title").text("Game Over, Press Any Key to Restart");
+        $("#level-title").text("Game Over, Press Any Key or click on footer to Restart");
         setTimeout(function () {
             $("body").removeClass("game-over");
         }, 200);
@@ -77,6 +77,14 @@ function nextSequence() {
     }, 100);
 }
 
+$("footer").click(function () {
+    if (!started) {
+        $("h1").html(`Level ${level}`)
+
+        nextSequence();
+        started = true;
+    }
+})
 
 
 $(document).keypress(function () {
